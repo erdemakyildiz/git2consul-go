@@ -17,6 +17,7 @@ limitations under the License.
 package kv
 
 import (
+	"fmt"
 	"io/ioutil"
 	"path/filepath"
 	"strconv"
@@ -59,6 +60,13 @@ func Init(path string, repo repository.Repo) File {
 	if f == nil {
 		f = &TextFile{path: path}
 	}
+	ingoreFileExt := config.IgnoreFileExt
+	if ingoreFileExt{
+		i := strings.Index(path, ".")
+		newPath := path[0:i]
+		path = newPath
+	}
+
 	return f
 }
 

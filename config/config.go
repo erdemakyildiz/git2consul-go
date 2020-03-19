@@ -54,6 +54,7 @@ type Repo struct {
 	ExpandKeys     bool        `json:"expand_keys,omitempty"`
 	SkipBranchName bool        `json:"skip_branch_name,omitempty"`
 	SkipRepoName   bool        `json:"skip_repo_name,omitempty"`
+	IgnoreFileExt  bool        `json:"ignore_file_extension, omitempty"`
 	Credentials    Credentials `json:"credentials,omitempty"`
 }
 
