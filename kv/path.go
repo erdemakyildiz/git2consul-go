@@ -51,7 +51,7 @@ func pathHandler(repo repository.Repo, filePath string) (string, int, error) {
 	if ingoreFileExt{
 		i := strings.Index(path, ".")
 		newPath := path[0:i]
-		path = newPath
+		path = newPath + "/conf"
 	}
 
 	return path, PathFormatterOK, nil
