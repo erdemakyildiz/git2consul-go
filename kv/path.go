@@ -46,6 +46,14 @@ func pathHandler(repo repository.Repo, filePath string) (string, int, error) {
 	}
 	path := path.Join(basePath, corePath)
 
+	config := repo.GetConfig()
+	ingoreFileExt := config.IgnoreFileExt
+	if ingoreFileExt{
+		i := strings.Index(path, ".")
+		newPath := path[0:i]
+		path = newPath
+	}
+
 	return path, PathFormatterOK, nil
 }
 
